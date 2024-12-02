@@ -1,4 +1,4 @@
-🚀 CCC CAMPUS FOUNDERS: DAIMLER TRUCK CHALLENGE
+#🚀 CCC CAMPUS FOUNDERS: DAIMLER TRUCK CHALLENGE
 A smart course recommendation platform to match users with their perfect learning opportunities!
 
 🌟 Overview
