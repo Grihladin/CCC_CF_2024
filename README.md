@@ -2,11 +2,11 @@
 
 This project is a web application designed to help users discover the most relevant courses tailored to their specific problems and learning goals. Built using Flask as the web framework, the application integrates advanced document embedding and analysis tools to enhance recommendation quality.
 
-Key features include:
-	•	Course Recommendations: Utilizes the “mxbai-embed-large:latest” embedding tool to process and match user queries with suitable course content.
-	•	Result Analysis and Summarization: Employs the LLaMA 3.1 model to analyze and provide concise summaries of recommended courses, ensuring users can make informed decisions.
-
-The combination of these technologies delivers an intuitive and efficient platform for personalized learning.
+	•	Key Features:
+	•	Course Recommendations:
+	•	Integrates the “mxbai-embed-large:latest” embedding tool to process and match user queries with the most relevant courses.
+	•	Result Analysis and Summarization:
+	•	Utilizes the LLaMA 3.1 model to analyze and summarize the recommended courses, providing users with clear and concise information.
 
 ## Features
 
