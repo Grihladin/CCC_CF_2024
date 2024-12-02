@@ -5,4 +5,5 @@ This project is a web application that helps users find the best courses based o
 ## Requirements
 
 - Python 3.12
+- Installed "mxbai-embed-large:latest" and "llama3.1:latest"
 - See `requirements.txt` for the list of required Python packages
