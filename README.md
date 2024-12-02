@@ -1,23 +1,19 @@
-#🚀 CCC CAMPUS FOUNDERS: DAIMLER TRUCK CHALLENGE
-A smart course recommendation platform to match users with their perfect learning opportunities!
+# Team7 SolutionDemo
 
-🌟 Overview
-This project is a web application designed to help users find the best courses tailored to their specific problems and learning goals. By leveraging state-of-the-art technologies, it simplifies the process of course discovery and empowers users to achieve their educational ambitions.
+This project is a web application designed to help users discover the most relevant courses tailored to their specific problems and learning goals. Built using Flask as the web framework, the application integrates advanced document embedding and analysis tools to enhance recommendation quality.
 
-🔧 Features
-Advanced Course Matching
-Powered by the mxbai-embed-large:latest embedding model to provide precise and relevant course recommendations based on user input.
+Key features include:
+	•	Course Recommendations: Utilizes the “mxbai-embed-large:latest” embedding tool to process and match user queries with suitable course content.
+	•	Result Analysis and Summarization: Employs the LLaMA 3.1 model to analyze and provide concise summaries of recommended courses, ensuring users can make informed decisions.
 
-Summarized Insights
-Integrated with Llama 3.1, the app generates concise summaries of recommended courses and offers personalized suggestions to guide users in their learning journey.
+The combination of these technologies delivers an intuitive and efficient platform for personalized learning.
 
-Real Data Integration
-Uses Coursera.csv as demonstration data to showcase real-world course options.
+## Features
 
-🛠️ Tech Stack
-Framework: Flask – lightweight and flexible web framework for Python.
-Embedding Model: mxbai-embed-large – for course similarity analysis.
-Summarization Model: Llama 3.1 – for generating tailored course summaries and recommendations.
+- User-friendly form to input problems and learning goals
+- Dropdown menu to select the department
+- Displays top 5 recommended courses based on user input
+
 
 
 ## Requirements
