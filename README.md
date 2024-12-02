@@ -1,6 +1,12 @@
 # CCC CAMPUS FOUNDERS DAIMLER's TRUCK CHALLENGE
 
-This project is a web application that helps users find the best courses based on their problems and learning goals. As demonstrative i use Coursera.csv The application uses Flask for the web framework and integrates with a "mxbai-embed-large:latest" embedding model to provide relevant course recommendations.
+This project is a web application designed to assist users in finding the most relevant courses tailored to their specific problems and learning goals. The application utilizes Coursera.csv as demonstration data and is built with the Flask web framework.
+
+Key features include:
+
+Integration with the mxbai-embed-large:latest embedding model to deliver highly relevant course recommendations.
+Use of the Llama 3.1 model to generate concise summaries of suggested courses and provide personalized recommendations.
+This innovative solution aims to simplify course discovery and enhance learning outcomes.
 
 ## Requirements
 
