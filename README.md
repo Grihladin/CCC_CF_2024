@@ -1,12 +1,24 @@
-# CCC CAMPUS FOUNDERS DAIMLER's TRUCK CHALLENGE
+🚀 CCC CAMPUS FOUNDERS: DAIMLER TRUCK CHALLENGE
+A smart course recommendation platform to match users with their perfect learning opportunities!
 
-This project is a web application designed to assist users in finding the most relevant courses tailored to their specific problems and learning goals. The application utilizes Coursera.csv as demonstration data and is built with the Flask web framework.
+🌟 Overview
+This project is a web application designed to help users find the best courses tailored to their specific problems and learning goals. By leveraging state-of-the-art technologies, it simplifies the process of course discovery and empowers users to achieve their educational ambitions.
 
-Key features include:
+🔧 Features
+Advanced Course Matching
+Powered by the mxbai-embed-large:latest embedding model to provide precise and relevant course recommendations based on user input.
 
-Integration with the mxbai-embed-large:latest embedding model to deliver highly relevant course recommendations.
-Use of the Llama 3.1 model to generate concise summaries of suggested courses and provide personalized recommendations.
-This innovative solution aims to simplify course discovery and enhance learning outcomes.
+Summarized Insights
+Integrated with Llama 3.1, the app generates concise summaries of recommended courses and offers personalized suggestions to guide users in their learning journey.
+
+Real Data Integration
+Uses Coursera.csv as demonstration data to showcase real-world course options.
+
+🛠️ Tech Stack
+Framework: Flask – lightweight and flexible web framework for Python.
+Embedding Model: mxbai-embed-large – for course similarity analysis.
+Summarization Model: Llama 3.1 – for generating tailored course summaries and recommendations.
+
 
 ## Requirements
 
