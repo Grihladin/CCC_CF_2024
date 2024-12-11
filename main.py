@@ -87,18 +87,18 @@ def index():
     </head>
     <body>
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
-            <a class="navbar-brand" href="#">Team7 SolutionDemo</a>
+            <a class="navbar-brand" href="#">CF CCC Team7 (SolutionDrivers) Daimler Truck Challenge</a>
         </nav>
         <div class="container mt-5">
             <h1>Let's find best courses</h1>
             <form action="/submit" method="post">
                 <div class="form-group">
                     <label for="problem">What is your problem:</label>
-                    <textarea class="form-control" id="problem" name="problem"></textarea>
+                    <textarea class="form-control" id="problem" name="problem" placeholder="Explain in your own words what task you want to do. What isn't working the way you want it to? What should be improved or changed?"></textarea>
                 </div>
                 <div class="form-group">
                     <label for="learn">What you want to learn:</label>
-                    <textarea class="form-control" id="learn" name="learn"></textarea>
+                    <textarea class="form-control" id="learn" name="learn" placeholder="What information you need to solve your problem. What are you trying to understand?"></textarea>
                 </div>
                 <div class="form-group">
                     <label for="department">Choose your department:</label>
@@ -134,7 +134,7 @@ def submit():
     problem = request.form['problem']
     department = request.form['department']
 
-    prompt = f"I face the problem {problem} and I want to learn {learn}"
+    prompt = f"I face the problem {problem} and I want to {learn}"
 
     # User promt embedding
     response = ollama.embeddings(model="mxbai-embed-large:latest", prompt=prompt)
@@ -160,8 +160,8 @@ def submit():
 
     output = ollama.generate(
         model="llama3.1:latest",
-        prompt=f""" Imagine you are a learning consultant, Using this data {top_courses}. //describe step by step
-        Respond to this prompt, be polite and friendley try match the learning request with problem. Build your answer only on the base of provided data. Use bullet points. {prompt}"""
+        prompt=f"""As a professional learning consultant, analyze the data {top_courses} and provide a response to this request: {prompt}.
+        Build your answer only on provided data, use the given information to make a clear, helpful recommendation while maintaining a polite and supportive tone."""
     )
     ollama_answer = output['response']
     formated_output = markdown.markdown(ollama_answer)
