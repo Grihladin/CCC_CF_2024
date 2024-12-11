@@ -2,8 +2,7 @@ from flask import Flask, request, render_template_string
 import ollama
 import chromadb
 import json
-
-
+import markdown
 
 app = Flask(__name__)
 
@@ -59,7 +58,8 @@ result_template = '''
             {% endfor %}
         </div>
 
-        <p><strong>Learning assistant:</strong> {{ output }}</p>
+    <strong class="mt-4 d-block">Learning assistant:</strong>
+    <div>{{ output | safe }}</div>
     </div>
 
     <!-- Bootstrap JS and dependencies -->
@@ -160,12 +160,13 @@ def submit():
 
     output = ollama.generate(
         model="llama3.1:latest",
-        prompt=f""" Imagine you are a learning consultant, Using this data {top_courses}. 
-        Respond to this prompt, be polite and friendley try match the learning request with problem. Build your answer only on the base of provided data. {prompt}"""
+        prompt=f""" Imagine you are a learning consultant, Using this data {top_courses}. //describe step by step
+        Respond to this prompt, be polite and friendley try match the learning request with problem. Build your answer only on the base of provided data. Use bullet points. {prompt}"""
     )
     ollama_answer = output['response']
+    formated_output = markdown.markdown(ollama_answer)
 
-    return render_template_string(result_template, learn=learn, problem=problem, output=ollama_answer, top_courses=top_courses)
+    return render_template_string(result_template, learn=learn, problem=problem, output=formated_output, top_courses=top_courses)
 
 if __name__ == '__main__':
     app.run(debug=True)
