@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Result</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="container mt-5">
+        <h1>Result</h1>
+        <p><strong>Problem:</strong> {{ problem }}</p>
+        <p><strong>Learn:</strong> {{ learn }}</p>
+
+        <h3>Top 5 Courses:</h3>
+        <div class="accordion" id="courseAccordion">
+            {% for course in top_courses %}
+                <div class="card">
+                    <div class="card-header" id="heading{{ loop.index }}">
+                        <h2 class="mb-0">
+                            <button class="btn btn-link" type="button" data-toggle="collapse"
+                                    data-target="#collapse{{ loop.index }}" aria-expanded="false" aria-controls="collapse{{ loop.index }}">
+                                {{ course.name }}
+                            </button>
+                        </h2>
+                    </div>
+                    <div id="collapse{{ loop.index }}" class="collapse"
+                         aria-labelledby="heading{{ loop.index }}" data-parent="#courseAccordion">
+                        <div class="card-body">
+                            {{ course.description }}
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+
+    <strong class="mt-4 d-block">Learning assistant:</strong>
+    <div class="output-text">{{ output | safe }}</div>
+    </div>
+
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <!-- Popper.js -->
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <!-- Bootstrap JS -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

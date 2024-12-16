@@ -1,3 +1,5 @@
 embeddings_data.json
 __pycache__/
 .DS_Store
+.venv/
+.idea/

@@ -1,0 +1,145 @@
+        /* Modern Base Styles */
+        body {
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            min-height: 100vh;
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+        }
+
+        /* Elegant Title Header */
+        .title-header {
+            text-align: center;
+            font-size: 2.5rem;
+            font-weight: 600;
+            color: #2c3e50;
+            margin: 40px auto;
+            max-width: 600px;
+            padding: 20px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+        }
+
+        /* Modern Form Container */
+        .form-container {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+            max-width: 600px;
+            margin: 0 auto;
+            transition: transform 0.3s ease;
+        }
+
+        .form-container:hover {
+            transform: translateY(-5px);
+        }
+
+        /* Enhanced Form Elements */
+        .form-container h1 {
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+            color: #2c3e50;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 10px;
+        }
+
+        .form-control {
+            border: 2px solid #e9ecef;
+            border-radius: 8px;
+            padding: 12px;
+            transition: all 0.3s ease;
+        }
+
+        .form-control:focus {
+            border-color: #3498db;
+            box-shadow: 0 0 0 0.2rem rgba(52,152,219,0.25);
+        }
+
+        /* Modern Button Style */
+        .btn-primary {
+            background: linear-gradient(135deg, #3498db 0%, #2980b9 100%);
+            border: none;
+            border-radius: 8px;
+            padding: 12px 24px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(52,152,219,0.4);
+        }
+
+        /* Result Styles */
+        .accordion .card {
+            border: none;
+            margin-bottom: 10px;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .accordion .card-header {
+            background: #f8f9fa;
+            border: none;
+            padding: 0;
+        }
+
+        .accordion .btn-link {
+            width: 100%;
+            text-align: left;
+            color: #2c3e50;
+            font-weight: 600;
+            text-decoration: none;
+            padding: 15px 20px;
+        }
+
+        .accordion .card-body {
+            padding: 20px;
+            background: #fff;
+        }
+
+        /* Output Text Styling */
+        .output-text {
+            font-size: 1.1rem;
+            line-height: 1.6;
+            color: #2c3e50;
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 8px;
+            margin-top: 20px;
+        }
+
+        /* Responsive Adjustments */
+        @media (max-width: 768px) {
+            .title-header {
+                font-size: 2rem;
+                padding: 15px;
+            }
+
+            .form-container {
+                margin: 20px;
+                padding: 20px;
+            }
+        }
+
+        /* Form Group Sizing */
+        .form-group {
+            margin-bottom: 2rem;  /* Increased bottom margin */
+            padding: 1rem;        /* Added padding around inputs */
+        }
+
+        .form-control {
+            min-height: 3rem;     /* Increased minimum height */
+            font-size: 1.1rem;    /* Slightly larger font */
+            padding: 1rem;        /* More padding inside inputs */
+        }
+
+        textarea.form-control {
+            min-height: 150px;    /* Taller textareas */
+        }
+
+        /* For select dropdowns */
+        select.form-control {
+            height: 3rem;         /* Match other inputs */
+            padding: 0 1rem;      /* Horizontal padding */
+        }
