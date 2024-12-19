@@ -1,8 +1,9 @@
-from flask import Flask, request, render_template
+from flask import Flask, request, render_template, redirect, url_for
 import ollama
 import chromadb
 import json
 import markdown
+import os
 
 app = Flask(__name__)
 
@@ -19,11 +20,6 @@ for data in embeddings_data:
         embeddings=[data["embedding"]],
         documents=[data["document"]]
     )
-
-# HTML template for displaying output
-result_template = '''
-
-'''
 
 @app.route('/', methods=['GET', 'POST'])
 def user_questions():
@@ -116,6 +112,30 @@ def process_submission(saved_data):
                                 final_prompt = prompt,
                                 output=formated_output, 
                                 top_courses=top_courses)
+
+@app.route('/submit_feedback', methods=['POST'])
+def submit_feedback():
+    rating = request.form['rating']
+    feedback_text = request.form['feedback']
+    feedback = {
+        'rating': rating,
+        'feedback': feedback_text
+    }
+
+    feedback_file = 'feedback.json'
+
+    if os.path.exists(feedback_file) and os.path.getsize(feedback_file) > 0:
+        with open(feedback_file, 'r') as f:
+            feedback_data = json.load(f)
+    else:
+        feedback_data = []
+
+    feedback_data.append(feedback)
+
+    with open(feedback_file, 'w') as f:
+        json.dump(feedback_data, f, indent=4)
+
+    return redirect(url_for('user_questions'))
 
 if __name__ == '__main__':
     app.run(debug=True)
