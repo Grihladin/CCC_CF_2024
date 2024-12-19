@@ -42,7 +42,7 @@ def user_questions():
             'id': 'knowledge_level',
             'label': 'What is your current knowledge level:',
             'type': 'select',
-            'options': ['Beginner', 'Medium', 'Advanced']  # Fixed typo in 'Beginner'
+            'options': ['Beginner', 'Medium', 'Advanced']
         },
         {
             'id': 'department',
@@ -71,13 +71,14 @@ def user_questions():
         "homepage.html",
         question=questions[current_step],
         current_step=current_step,
+        total_steps=len(questions),
         saved_data=saved_data
     )
 
 def process_submission(saved_data):
     problem, learn, knowledge_level, department = saved_data
     
-    prompt = f"I face the problem {problem} and I want to {learn}"
+    prompt = f"I face the problem {problem} and I want to {learn}, my current knowledge level is {knowledge_level}"
 
     # User prompt embedding
     response = ollama.embeddings(model="mxbai-embed-large:latest", prompt=prompt)
@@ -110,7 +111,9 @@ def process_submission(saved_data):
 
     return render_template("result.html",
                                 learn=learn, 
-                                problem=problem, 
+                                problem=problem,
+                                knowledge_level = knowledge_level,
+                                final_prompt = prompt,
                                 output=formated_output, 
                                 top_courses=top_courses)
 

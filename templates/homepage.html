@@ -48,6 +48,14 @@
                 <input type="hidden" name="saved_data[]" value="{{ data }}">
             {% endfor %}
 
+            <div class="progress mb-4">
+                <div class="progress-bar" role="progressbar"
+                     style="width: {{ (current_step / total_steps) * 100 | round(2) }}%;"
+                     aria-valuenow="{{ current_step }}"
+                     aria-valuemin="0"
+                     aria-valuemax="{{ total_steps }}">
+                </div>
+            </div>
             <!-- Submit Button -->
             <button type="submit" class="btn btn-primary">
                 {{ 'Submit' if current_step == 3 else 'Next step' }}

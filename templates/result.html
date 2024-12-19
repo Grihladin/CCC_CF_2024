@@ -12,6 +12,8 @@
         <h1>Result</h1>
         <p><strong>Problem:</strong> {{ problem }}</p>
         <p><strong>Learn:</strong> {{ learn }}</p>
+        <p><strong>Knowledge level:</strong> {{ knowledge_level }}</p>
+        <p><strong>Final prompt:</strong> {{ final_prompt }}</p>
 
         <h3>Top 5 Courses:</h3>
         <div class="accordion" id="courseAccordion">
@@ -37,6 +39,29 @@
 
     <strong class="mt-4 d-block">Learning assistant:</strong>
     <div class="output-text">{{ output | safe }}</div>
+
+     <!-- Feedback Form -->
+     <div class="mt-5 feedback-container">
+        <h3>Feedback</h3>
+        <form action="/submit_feedback" method="post" class="feedback-form">
+            <div class="form-group">
+                <input type="range" class="form-control-range" id="rating" name="rating" min="1" max="5" step="1" oninput="updateEmoji(this.value)">
+                <div class="d-flex justify-content-between emoji-container">
+                    <span role="img" aria-label="Very Dissatisfied">😠</span>
+                    <span role="img" aria-label="Dissatisfied">😞</span>
+                    <span role="img" aria-label="Neutral">😐</span>
+                    <span role="img" aria-label="Satisfied">😊</span>
+                    <span role="img" aria-label="Very Satisfied">😍</span>
+                </div>
+                <div id="selected-emoji" class="text-center mt-2 selected-emoji">😐</div>
+            </div>
+            <div class="form-group">
+                <label for="feedback">What Can We Do Better?</label>
+                <textarea class="form-control" id="feedback" name="feedback" rows="4" required></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary">Submit Feedback</button>
+        </form>
+    </div>
     </div>
 
     <!-- Bootstrap JS and dependencies -->
@@ -45,5 +70,12 @@
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
     <!-- Bootstrap JS -->
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <script>
+        function updateEmoji(value) {
+            const emojis = ['😠', '😞', '😐', '😊', '😍'];
+            document.getElementById('selected-emoji').innerText = emojis[value - 1];
+        }
+    </script>
 </body>
 </html>
