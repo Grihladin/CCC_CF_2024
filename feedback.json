@@ -2,5 +2,13 @@
     {
         "rating": "5",
         "feedback": "Feedback test"
+    },
+    {
+        "rating": "2",
+        "feedback": "Test again"
+    },
+    {
+        "rating": "2",
+        "feedback": "check pro feedback"
     }
 ]

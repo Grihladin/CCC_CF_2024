@@ -16,9 +16,19 @@
 <!-- Page Header -->
 <h1 class="title-header">Daimler Truck LMS</h1>
 
+<!-- Toggle Switch -->
+<div class="container text-center mb-4">
+    <label class="apple-switch">
+        <input type="checkbox" id="toggleModeSwitch">
+        <span class="apple-slider">
+            <span class="switch-label">Default</span>
+        </span>
+    </label>
+</div>
+
 <!-- Main Content -->
 <div class="container">
-    <div class="form-container">
+    <div id="normalMode" class="form-container">
         <!-- Form Header -->
         <h1>{{ question.label }}</h1>
 
@@ -48,18 +58,29 @@
                 <input type="hidden" name="saved_data[]" value="{{ data }}">
             {% endfor %}
 
-            <div class="progress mb-4">
-                <div class="progress-bar" role="progressbar"
-                     style="width: {{ (current_step / total_steps) * 100 | round(2) }}%;"
-                     aria-valuenow="{{ current_step }}"
-                     aria-valuemin="0"
-                     aria-valuemax="{{ total_steps }}">
-                </div>
-            </div>
             <!-- Submit Button -->
             <button type="submit" class="btn btn-primary">
                 {{ 'Submit' if current_step == 3 else 'Next step' }}
             </button>
+        </form>
+    </div>
+
+    <div id="proMode" class="form-container" style="display: none;">
+        <!-- Pro Mode Interface -->
+        <h1>Pro Mode</h1>
+        <!-- Pro Mode Form -->
+        <form action="/pro_mode" method="post">
+            <div class="form-group">
+                <!-- Single Question -->
+                <label for="proQuestion">Enter prompt for search:</label>
+                <textarea class="form-control"
+                          id="proQuestion"
+                          name="proQuestion"
+                          placeholder="Describe what you want to search with natural language."
+                          rows="4"></textarea>
+            </div>
+            <!-- Submit Button -->
+            <button type="submit" class="btn btn-primary">Submit</button>
         </form>
     </div>
 </div>
@@ -68,6 +89,22 @@
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<script>
+    document.getElementById('toggleModeSwitch').addEventListener('change', function() {
+        var normalMode = document.getElementById('normalMode');
+        var proMode = document.getElementById('proMode');
+        var switchLabel = document.querySelector('.switch-label');
+        if (this.checked) {
+            normalMode.style.display = 'none';
+            proMode.style.display = 'block';
+            switchLabel.textContent = 'Pro';
+        } else {
+            normalMode.style.display = 'block';
+            proMode.style.display = 'none';
+            switchLabel.textContent = 'Default';
+        }
+    });
+</script>
 </body>
 
 </html>

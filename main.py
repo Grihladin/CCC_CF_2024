@@ -137,5 +137,33 @@ def submit_feedback():
 
     return redirect(url_for('user_questions'))
 
+@app.route('/pro_mode', methods=['POST'])
+def pro_mode():
+    prompt = request.form['proQuestion']
+    
+    response = ollama.embeddings(model="mxbai-embed-large:latest", prompt=prompt)
+    embedding = response["embedding"]
+
+    results = collection.query(
+        query_embeddings=[embedding],
+        n_results=30
+    )
+
+    # Get the IDs of the top documents
+    top_ids = results['ids'][0]
+    id_to_course = {item['id']: {'name': item['name'], 'description': item['document']} for item in embeddings_data}
+
+    top_courses = []
+    for doc_id in top_ids:
+        course_info = id_to_course[doc_id]
+        top_courses.append({
+            'name': course_info['name'],
+            'description': course_info['description']
+        })
+
+    return render_template("proResult.html", 
+                                search_prompt=prompt,
+                                top_courses=top_courses)
+
 if __name__ == '__main__':
     app.run(debug=True)
